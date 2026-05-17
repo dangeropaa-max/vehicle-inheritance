@@ -8,8 +8,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface Validate {
-    boolean notNull() default true;
+    boolean notNull() default false;
     boolean notEmpty() default false;
     String regex() default "";
-    String message() default "Не удалось выполнить проверку";
+    String message() default "Ошибка валидации";
 }

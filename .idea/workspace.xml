@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1adf3170-26df-41e7-a5ad-61cad6836fe4" name="Changes" comment="" />
+    <list default="true" id="1adf3170-26df-41e7-a5ad-61cad6836fe4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/model/OrderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/service/OrderProcessingServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java1/annotations/Validate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/annotations/Validate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java1/consumer/OrderConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/consumer/OrderConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java1/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java1/model/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/model/OrderStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java1/producer/OrderProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/producer/OrderProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java1/service/OrderProcessingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/service/OrderProcessingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java1/validator/OrderValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/validator/OrderValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/java1/model/OrderTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/java1/service/OrderProcessingServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/java1/validator/OrderValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/validator/OrderValidatorTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +36,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -34,23 +53,121 @@
     "Application.MainTreeBinarySearch.executor": "Run",
     "Application.Seaport.executor": "Run",
     "Application.SingleLaneBridge.executor": "Run",
+    "JUnit.OrderProcessingServiceTest.executor": "Run",
+    "JUnit.OrderTest (1).executor": "Run",
+    "JUnit.OrderTest.executor": "Run",
+    "JUnit.OrderValidatorTest (1).executor": "Run",
+    "JUnit.OrderValidatorTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "task-manager",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Denis",
+    "last_opened_file_path": "C:/Users/Denis/IdeaProjects/order-processing",
     "onboarding.tips.debug.path": "C:/Users/Denis/IdeaProjects/vehicle-inheritance/src/Main.java"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="SingleLaneBridge" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SingleLaneBridge" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Denis\IdeaProjects\vehicle-inheritance\src\test" />
+      <recent name="C:\Users\Denis\IdeaProjects\vehicle-inheritance\src\test\java1\service" />
+      <recent name="C:\Users\Denis\IdeaProjects\vehicle-inheritance\src\test\java1\model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.OrderValidatorTest (1)">
+    <configuration name="OrderProcessingServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="vehicle-inheritance" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.OrderProcessingServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vehicle-inheritance" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.OrderTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vehicle-inheritance" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="java1.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="java1.model" />
+      <option name="MAIN_CLASS_NAME" value="java1.model.OrderTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderValidatorTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vehicle-inheritance" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="validator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="validator" />
+      <option name="MAIN_CLASS_NAME" value="validator.OrderValidatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vehicle-inheritance" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="java1.validator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="java1.validator" />
+      <option name="MAIN_CLASS_NAME" value="java1.validator.OrderValidatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="vehicle-inheritance" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="vehicle-inheritance" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SingleLaneBridge" />
+        <item itemvalue="JUnit.OrderValidatorTest (1)" />
+        <item itemvalue="JUnit.OrderProcessingServiceTest" />
+        <item itemvalue="JUnit.OrderTest (1)" />
+        <item itemvalue="JUnit.OrderValidatorTest" />
+        <item itemvalue="JUnit.OrderTest" />
       </list>
     </recent_temporary>
   </component>

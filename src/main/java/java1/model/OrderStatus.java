@@ -1,19 +1,28 @@
 package java1.model;
 
 public enum OrderStatus {
-    PENDING("Ожидает обработки"),
-    PROCESSING("В обработке"),
-    COMPLETED("Завершен"),
-    FAILED("Ошибка обработки"),
-    CANCELLED("Отменен");
+    PENDING("PENDING"),
+    PROCESSING("PROCESSING"),
+    COMPLETED("COMPLETED"),
+    FAILED("FAILED"),
+    CANCELLED("CANCELLED");
 
-    private final String description;
+    private final String value;
 
-    OrderStatus(String description) {
-        this.description = description;
+    OrderStatus(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
     }
 
     public String getDescription() {
-        return description;
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return value;
     }
 }
