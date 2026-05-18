@@ -6,6 +6,7 @@ import java1.validator.OrderValidator;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.TimeUnit;
 
 public class OrderConsumer implements Runnable {
     private final BlockingQueue<Order> queue;
@@ -27,9 +28,11 @@ public class OrderConsumer implements Runnable {
         System.out.println(consumerId + " запущен");
         while (running && !Thread.currentThread().isInterrupted()) {
             try {
-                Order order = queue.take();
-                System.out.println(consumerId + " получил заказ " + order.getId());
-                processOrder(order);
+                Order order = queue.poll(1, TimeUnit.SECONDS);
+                if (order != null) {
+                    System.out.println(consumerId + " получил заказ " + order.getId());
+                    processOrder(order);
+                }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 break;
@@ -60,5 +63,9 @@ public class OrderConsumer implements Runnable {
 
     public void stop() {
         running = false;
+    }
+
+    public String getConsumerId() {
+        return consumerId;
     }
 }

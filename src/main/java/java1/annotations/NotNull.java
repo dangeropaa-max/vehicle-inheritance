@@ -7,9 +7,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Validate {
-    boolean notNull() default false;
-    boolean notEmpty() default false;
-    String regex() default "";
-    String message() default "Ошибка валидации";
+public @interface NotNull {
+    String message() default "Поле не может быть null";
 }

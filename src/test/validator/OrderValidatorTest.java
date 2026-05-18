@@ -95,4 +95,108 @@ class OrderValidatorTest {
         assertFalse(normalOrder.isUrgent());
         assertTrue(validator.isValid(normalOrder));
     }
+
+    @Test
+    void testIsUrgentOrderReturnsFalseForNormalOrder() {
+        assertFalse(validator.isUrgentOrder(order));
+    }
+
+    @Test
+    void testIsUrgentOrderReturnsTrueForUrgentOrder() {
+        Order urgentOrder = new Order("456", "Jane Smith", "Phone", 1, true);
+        assertTrue(validator.isUrgentOrder(urgentOrder));
+    }
+
+    @Test
+    void testIsUrgentOrderReturnsFalseForNull() {
+        assertFalse(validator.isUrgentOrder(null));
+    }
+
+    @Test
+    void testValidateAcceptsValidUrgentOrder() {
+        Order urgentOrder = new Order("urgent-1", "Urgent Customer", "Urgent Product", 1, true);
+        assertTrue(validator.isValid(urgentOrder));
+    }
+
+    @Test
+    void testBlankCustomerName() {
+        order.setCustomerName("   ");
+        assertFalse(validator.isValid(order));
+    }
+
+    @Test
+    void testValidateReturnsErrors() {
+        Order invalidOrder = new Order();
+        invalidOrder.setId(null);
+        invalidOrder.setCustomerName(null);
+        invalidOrder.setProductDescription(null);
+        invalidOrder.setQuantity(0);
+
+        var errors = validator.validate(invalidOrder);
+        assertFalse(errors.isEmpty());
+        assertTrue(errors.size() >= 3);
+    }
+
+    @Test
+    void testVeryLongCustomerName() {
+        String longName = "A".repeat(1000);
+        Order order = new Order("1", longName, "Product", 1, false);
+        assertTrue(validator.isValid(order));
+    }
+
+    @Test
+    void testVeryLongProductDescription() {
+        String longDesc = "B".repeat(2000);
+        Order order = new Order("1", "Customer", longDesc, 1, false);
+        assertTrue(validator.isValid(order));
+    }
+
+    @Test
+    void testMaxQuantity() {
+        Order order = new Order("1", "Customer", "Product", Integer.MAX_VALUE, false);
+        assertTrue(validator.isValid(order));
+    }
+
+    @Test
+    void testSpecialCharactersInName() {
+        Order order = new Order("1", "!@#$%^&*()", "Product", 1, false);
+        assertTrue(validator.isValid(order));
+    }
+
+    @Test
+    void testSpecialCharactersInProduct() {
+        Order order = new Order("1", "Customer", "!@#$%^&*()", 1, false);
+        assertTrue(validator.isValid(order));
+    }
+
+    @Test
+    void testWhitespaceOnlyCustomerName() {
+        Order order = new Order("1", "   ", "Product", 1, false);
+        assertFalse(validator.isValid(order));
+    }
+
+    @Test
+    void testWhitespaceOnlyProductDescription() {
+        Order order = new Order("1", "Customer", "   ", 1, false);
+        assertFalse(validator.isValid(order));
+    }
+
+    @Test
+    void testIdWithSpaces() {
+        Order order = new Order("1 2 3", "Customer", "Product", 1, false);
+        assertTrue(validator.isValid(order));
+    }
+
+    @Test
+    void testNumericCustomerName() {
+        Order order = new Order("1", "12345", "Product", 1, false);
+        assertTrue(validator.isValid(order));
+    }
+
+    @Test
+    void testSingleCharacterName() {
+        Order order = new Order("1", "A", "Product", 1, false);
+        assertTrue(validator.isValid(order));
+    }
+
 }

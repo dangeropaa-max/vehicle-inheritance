@@ -1,19 +1,23 @@
 package java1.model;
 
+import java1.annotations.NotNull;
+import java1.annotations.NotEmpty;
 import java1.annotations.OrderType;
-import java1.annotations.Validate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
 public class Order {
-    @Validate(notNull = true, notEmpty = true, message = "Order ID cannot be null")
+    @NotNull(message = "ID заказа не может быть пустым")
+    @NotEmpty(message = "ID заказа не может быть пустым")
     private String id;
 
-    @Validate(notNull = true, notEmpty = true, message = "Customer name cannot be empty")
+    @NotNull(message = "Имя клиента не может быть пустым")
+    @NotEmpty(message = "Имя клиента не может быть пустым")
     private String customerName;
 
-    @Validate(notNull = true, notEmpty = true, message = "Product description cannot be empty")
+    @NotNull(message = "Описание товара не может быть пустым")
+    @NotEmpty(message = "Описание товара не может быть пустым")
     private String productDescription;
 
     private int quantity;
@@ -44,60 +48,23 @@ public class Order {
         this(null, customerName, productDescription, quantity, urgent);
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
+    public String getCustomerName() { return customerName; }
+    public void setCustomerName(String customerName) { this.customerName = customerName; }
+    public String getProductDescription() { return productDescription; }
+    public void setProductDescription(String productDescription) { this.productDescription = productDescription; }
+    public int getQuantity() { return quantity; }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
+    public boolean isUrgent() { return urgent; }
+    public void setUrgent(boolean urgent) { this.urgent = urgent; }
+    public LocalDateTime getOrderDate() { return orderDate; }
+    public void setOrderDate(LocalDateTime orderDate) { this.orderDate = orderDate; }
+    public OrderStatus getStatus() { return status; }
+    public void setStatus(OrderStatus status) { this.status = status; }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
-    public String getProductDescription() {
-        return productDescription;
-    }
-
-    public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public boolean isUrgent() {
+    public boolean isUrgentOrder() {
         return urgent;
-    }
-
-    public void setUrgent(boolean urgent) {
-        this.urgent = urgent;
-    }
-
-    public LocalDateTime getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(LocalDateTime orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public OrderStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(OrderStatus status) {
-        this.status = status;
     }
 
     @Override

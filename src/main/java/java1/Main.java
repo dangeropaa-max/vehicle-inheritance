@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("=== Запуск системы обработки заказов ===\n");
+        System.out.println("Запуск системы обработки заказов\n");
         OrderProcessingService service = new OrderProcessingService(3, 50);
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.out.println("\nПолучен сигнал завершения...");
+            System.out.println("\nПолучен сигнал завершения");
             if (service.isRunning()) {
                 service.stop();
             }
@@ -45,11 +45,11 @@ public class Main {
 
         scanner.close();
         service.stop();
-        System.out.println("=== Система завершила работу ===");
+        System.out.println("Система завершила работу");
     }
 
     private static void showStatistics(OrderProcessingService service) {
-        System.out.println("\n=== СТАТИСТИКА ===");
+        System.out.println("\nСтатистика");
         System.out.printf("Обработано заказов: %d%n", service.getProcessedOrdersCount());
         System.out.printf("Заказов в очереди: %d%n", service.getQueueSize());
         System.out.printf("Статус сервиса: %s%n%n", service.isRunning() ? "РАБОТАЕТ" : "ОСТАНОВЛЕН");
@@ -61,7 +61,7 @@ public class Main {
             System.out.println("Нет обработанных заказов.\n");
             return;
         }
-        System.out.println("\n=== ОБРАБОТАННЫЕ ЗАКАЗЫ ===");
+        System.out.println("\nОбработанные заказы");
         for (Order order : orders) {
             System.out.printf("ID: %s | Клиент: %s | Товар: %s | Кол-во: %d | Срочный: %s | Статус: %s%n",
                     order.getId(), order.getCustomerName(), order.getProductDescription(),

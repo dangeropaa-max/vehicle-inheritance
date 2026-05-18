@@ -5,21 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1adf3170-26df-41e7-a5ad-61cad6836fe4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/model/OrderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/service/OrderProcessingServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/java1/annotations/NotEmpty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/java1/annotations/NotNull.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/java1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java1/annotations/Validate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/annotations/Validate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java1/annotations/Validate.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/java1/consumer/OrderConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/consumer/OrderConsumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/java1/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java1/model/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/model/OrderStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java1/producer/OrderProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/producer/OrderProducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/java1/service/OrderProcessingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/service/OrderProcessingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/java1/validator/OrderValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/validator/OrderValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/java1/model/OrderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/java1/service/OrderProcessingServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/java1/validator/OrderValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/validator/OrderValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/model/OrderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/OrderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/service/OrderProcessingServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/service/OrderProcessingServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/validator/OrderValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/validator/OrderValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/java1/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/java1/annotations/OrderType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/annotations/OrderType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/java1/annotations/Validate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/java1/consumer/OrderConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/consumer/OrderConsumer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/java1/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/java1/model/OrderStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/model/OrderStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/java1/producer/OrderProducer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/producer/OrderProducer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/java1/service/OrderProcessingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/service/OrderProcessingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/java1/validator/OrderValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/validator/OrderValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/model/OrderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/model/OrderTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/service/OrderProcessingServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/service/OrderProcessingServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/validator/OrderValidatorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/validator/OrderValidatorTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +67,9 @@
     "JUnit.OrderTest.executor": "Run",
     "JUnit.OrderValidatorTest (1).executor": "Run",
     "JUnit.OrderValidatorTest.executor": "Run",
+    "JUnit.java1 in vehicle-inheritance.executor": "Run",
+    "JUnit.java1.annotations in vehicle-inheritance.executor": "Run",
+    "JUnit.test in vehicle-inheritance.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "task-manager",
     "kotlin-language-version-configured": "true",
@@ -72,48 +84,16 @@
       <recent name="C:\Users\Denis\IdeaProjects\vehicle-inheritance\src\test\java1\model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.OrderValidatorTest (1)">
-    <configuration name="OrderProcessingServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="java1.Main" />
       <module name="vehicle-inheritance" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="service.*" />
+          <option name="PATTERN" value="java1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="MAIN_CLASS_NAME" value="service.OrderProcessingServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="vehicle-inheritance" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.OrderTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="vehicle-inheritance" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="java1.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="java1.model" />
-      <option name="MAIN_CLASS_NAME" value="java1.model.OrderTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -133,41 +113,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="java1 in vehicle-inheritance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="vehicle-inheritance" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="java1.validator.*" />
+          <option name="PATTERN" value="java1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="java1.validator" />
-      <option name="MAIN_CLASS_NAME" value="java1.validator.OrderValidatorTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="java1" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
+    <configuration name="java1.annotations in vehicle-inheritance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="vehicle-inheritance" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="java1.annotations.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="java1.annotations" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+    <configuration name="test in vehicle-inheritance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="vehicle-inheritance" />
-      <option name="filePath" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.java1.annotations in vehicle-inheritance" />
+        <item itemvalue="JUnit.java1 in vehicle-inheritance" />
+        <item itemvalue="JUnit.test in vehicle-inheritance" />
         <item itemvalue="JUnit.OrderValidatorTest (1)" />
-        <item itemvalue="JUnit.OrderProcessingServiceTest" />
-        <item itemvalue="JUnit.OrderTest (1)" />
-        <item itemvalue="JUnit.OrderValidatorTest" />
-        <item itemvalue="JUnit.OrderTest" />
       </list>
     </recent_temporary>
   </component>

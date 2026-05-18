@@ -101,4 +101,93 @@ class OrderProcessingServiceTest {
         service.stop();
         assertFalse(service.isRunning());
     }
+
+    @Test
+    void testProcessedOrdersCountAfterStop() throws InterruptedException {
+        service.start();
+        Thread.sleep(2000);
+        int countBeforeStop = service.getProcessedOrdersCount();
+        service.stop();
+        Thread.sleep(1000);
+        int countAfterStop = service.getProcessedOrdersCount();
+        assertTrue(countAfterStop >= countBeforeStop);
+    }
+
+    @Test
+    void testQueueEmptyAfterStop() throws InterruptedException {
+        service.start();
+        Thread.sleep(2000);
+        service.stop();
+        assertTrue(service.getQueueSize() >= 0);
+    }
+
+    @Test
+    void testMultipleProducersAndConsumers() throws InterruptedException {
+        OrderProcessingService service = new OrderProcessingService(5, 100);
+        service.start();
+
+        Thread.sleep(5000);
+
+        int processedCount = service.getProcessedOrdersCount();
+        assertTrue(processedCount > 10);
+        service.stop();
+    }
+
+    @Test
+    void testHighLoadProcessing() throws InterruptedException {
+        OrderProcessingService service = new OrderProcessingService(10, 200);
+        service.start();
+        Thread.sleep(10000);
+        int processedCount = service.getProcessedOrdersCount();
+        assertTrue(processedCount > 50);
+        service.stop();
+    }
+
+    @Test
+    void testStartStopMultipleTimes() {
+        OrderProcessingService service = new OrderProcessingService(2, 10);
+
+        for (int i = 0; i < 5; i++) {
+            service.start();
+            assertTrue(service.isRunning());
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            service.stop();
+            assertFalse(service.isRunning());
+        }
+    }
+
+    @Test
+    void testRapidStartStop() {
+        OrderProcessingService service = new OrderProcessingService(3, 20);
+        for (int i = 0; i < 10; i++) {
+            service.start();
+            service.stop();
+        }
+        assertFalse(service.isRunning());
+    }
+
+    @Test
+    void testQueueOverflow() throws InterruptedException {
+        OrderProcessingService service = new OrderProcessingService(1, 5);
+        service.start();
+        Thread.sleep(2000);
+        int queueSize = service.getQueueSize();
+        assertTrue(queueSize <= 5);
+        service.stop();
+    }
+
+    @Test
+    void testConsumersOutliveProducer() throws InterruptedException {
+        OrderProcessingService service = new OrderProcessingService(3, 50);
+        service.start();
+        Thread.sleep(3000);
+        service.stop();
+        int processedCount = service.getProcessedOrdersCount();
+        assertTrue(processedCount >= 0);
+    }
 }

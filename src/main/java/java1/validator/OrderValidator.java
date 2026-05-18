@@ -1,6 +1,8 @@
 package java1.validator;
 
-import java1.annotations.Validate;
+import java1.annotations.NotNull;
+import java1.annotations.NotEmpty;
+import java1.annotations.OrderType;
 import java1.model.Order;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -23,35 +25,35 @@ public class OrderValidator {
         Field[] fields = Order.class.getDeclaredFields();
 
         for (Field field : fields) {
-            if (field.isAnnotationPresent(Validate.class)) {
-                Validate validation = field.getAnnotation(Validate.class);
-                field.setAccessible(true);
+            field.setAccessible(true);
 
-                try {
-                    Object value = field.get(order);
+            try {
+                Object value = field.get(order);
 
-                    if (validation.notNull() && value == null) {
-                        errors.add(validation.message());
-                        continue;
-                    }
-
-                    if (validation.notEmpty() && value instanceof String) {
-                        String strValue = (String) value;
-                        if (strValue == null || strValue.trim().isEmpty()) {
-                            errors.add(validation.message());
-                        }
-                    }
-
-                    if (!validation.regex().isEmpty() && value instanceof String) {
-                        String strValue = (String) value;
-                        if (!strValue.matches(validation.regex())) {
-                            errors.add(validation.message());
-                        }
-                    }
-
-                } catch (IllegalAccessException e) {
-                    errors.add("Ошибка доступа к полю: " + field.getName());
+                if (field.isAnnotationPresent(NotNull.class) && value == null) {
+                    NotNull notNull = field.getAnnotation(NotNull.class);
+                    errors.add(notNull.message());
+                    continue;
                 }
+
+                if (field.isAnnotationPresent(NotEmpty.class) && value instanceof String) {
+                    String strValue = (String) value;
+                    if (strValue == null || strValue.trim().isEmpty()) {
+                        NotEmpty notEmpty = field.getAnnotation(NotEmpty.class);
+                        errors.add(notEmpty.message());
+                    }
+                }
+
+                if (field.isAnnotationPresent(OrderType.class)) {
+                    OrderType orderType = field.getAnnotation(OrderType.class);
+                    boolean urgent = orderType.urgent();
+                    if (urgent && (value == null || !(Boolean) value)) {
+                        errors.add("Отсутствует флаг срочного заказа");
+                    }
+                }
+
+            } catch (IllegalAccessException e) {
+                errors.add("Ошибка доступа к полю: " + field.getName());
             }
         }
 
@@ -63,5 +65,12 @@ public class OrderValidator {
             return false;
         }
         return validate(order).isEmpty();
+    }
+
+    public boolean isUrgentOrder(Order order) {
+        if (order == null) {
+            return false;
+        }
+        return order.isUrgent();
     }
 }

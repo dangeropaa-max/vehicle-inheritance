@@ -16,20 +16,29 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class OrderProcessingService {
-    private final BlockingQueue<Order> orderQueue;
-    private final ConcurrentMap<String, Order> processedOrders;
+    private BlockingQueue<Order> orderQueue;
+    private ConcurrentMap<String, Order> processedOrders;
     private final OrderValidator validator;
-    private final OrderProducer producer;
-    private final List<OrderConsumer> consumers;
-    private final ExecutorService executorService;
+    private OrderProducer producer;
+    private List<OrderConsumer> consumers;
+    private ExecutorService executorService;
     private final AtomicLong orderCounter;
     private volatile boolean isRunning;
+    private final int numberOfConsumers;
+    private final int queueCapacity;
 
     public OrderProcessingService(int numberOfConsumers, int queueCapacity) {
-        this.orderQueue = new LinkedBlockingQueue<>(queueCapacity);
-        this.processedOrders = new ConcurrentHashMap<>();
+        this.numberOfConsumers = numberOfConsumers;
+        this.queueCapacity = queueCapacity;
         this.validator = new OrderValidator();
         this.orderCounter = new AtomicLong(0);
+        this.isRunning = false;
+        initComponents();
+    }
+
+    private void initComponents() {
+        this.orderQueue = new LinkedBlockingQueue<>(queueCapacity);
+        this.processedOrders = new ConcurrentHashMap<>();
         this.consumers = new ArrayList<>();
         this.producer = new OrderProducer(orderQueue, orderCounter);
 
@@ -38,11 +47,17 @@ public class OrderProcessingService {
         }
 
         this.executorService = Executors.newFixedThreadPool(numberOfConsumers + 1);
-        this.isRunning = false;
     }
 
     public void start() {
-        if (isRunning) return;
+        if (isRunning) {
+            return;
+        }
+
+        if (executorService == null || executorService.isShutdown()) {
+            initComponents();
+        }
+
         isRunning = true;
         executorService.submit(producer);
         for (OrderConsumer consumer : consumers) {
@@ -52,41 +67,78 @@ public class OrderProcessingService {
     }
 
     public void stop() {
-        if (!isRunning) return;
+        if (!isRunning) {
+            return;
+        }
+
+        System.out.println("Остановка сервиса");
         isRunning = false;
-        producer.stop();
-        for (OrderConsumer consumer : consumers) {
-            consumer.stop();
+
+        if (producer != null) {
+            producer.stop();
         }
-        executorService.shutdown();
-        try {
-            if (!executorService.awaitTermination(5, TimeUnit.SECONDS)) {
-                executorService.shutdownNow();
+
+        if (consumers != null) {
+            for (OrderConsumer consumer : consumers) {
+                if (consumer != null) {
+                    consumer.stop();
+                }
             }
-        } catch (InterruptedException e) {
-            executorService.shutdownNow();
-            Thread.currentThread().interrupt();
         }
+
+        if (executorService != null && !executorService.isShutdown()) {
+            executorService.shutdown();
+            try {
+                if (!executorService.awaitTermination(5, TimeUnit.SECONDS)) {
+                    executorService.shutdownNow();
+                }
+            } catch (InterruptedException e) {
+                executorService.shutdownNow();
+                Thread.currentThread().interrupt();
+            }
+        }
+
         System.out.println("Сервис обработки заказов остановлен");
     }
 
+    public void restart() {
+        stop();
+        initComponents();
+        start();
+    }
+
     public ConcurrentMap<String, Order> getProcessedOrders() {
+        if (processedOrders == null) {
+            return new ConcurrentHashMap<>();
+        }
         return new ConcurrentHashMap<>(processedOrders);
     }
 
     public int getQueueSize() {
+        if (orderQueue == null) {
+            return 0;
+        }
         return orderQueue.size();
     }
 
     public int getProcessedOrdersCount() {
+        if (processedOrders == null) {
+            return 0;
+        }
         return processedOrders.size();
     }
 
     public List<Order> getProcessedOrdersList() {
+        if (processedOrders == null) {
+            return new ArrayList<>();
+        }
         return new ArrayList<>(processedOrders.values());
     }
 
     public Order getOrder(String orderId) {
+        if (processedOrders == null) {
+            return null;
+        }
         return processedOrders.get(orderId);
     }
 
