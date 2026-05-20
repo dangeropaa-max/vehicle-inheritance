@@ -199,4 +199,89 @@ class OrderValidatorTest {
         assertTrue(validator.isValid(order));
     }
 
+    @Test
+    void testIsValidWithNull() {
+        assertFalse(validator.isValid(null));
+    }
+
+    @Test
+    void testIsUrgentOrderWithNull() {
+        assertFalse(validator.isUrgentOrder(null));
+    }
+
+    @Test
+    void testIsUrgentOrderWithNormalOrder() {
+        Order normalOrder = new Order("1", "Customer", "Product", 1, false);
+        assertFalse(validator.isUrgentOrder(normalOrder));
+    }
+
+    @Test
+    void testIsUrgentOrderWithUrgentOrder() {
+        Order urgentOrder = new Order("1", "Customer", "Product", 1, true);
+        assertTrue(validator.isUrgentOrder(urgentOrder));
+    }
+
+    @Test
+    void testValidateWithOrderTypeAnnotation() {
+        Order order = new Order("1", "Customer", "Product", 1, true);
+        assertTrue(validator.isValid(order));
+    }
+
+    @Test
+    void testIsUrgentOrderWithUrgentTrue() {
+        Order urgentOrder = new Order("1", "Customer", "Product", 1, true);
+        assertTrue(validator.isUrgentOrder(urgentOrder));
+    }
+
+    @Test
+    void testIsUrgentOrderWithUrgentFalse() {
+        Order normalOrder = new Order("1", "Customer", "Product", 1, false);
+        assertFalse(validator.isUrgentOrder(normalOrder));
+    }
+    @Test
+    void testValidateWithNullOrderReturnsError() {
+        var errors = validator.validate(null);
+        assertTrue(errors.contains("Заказ не может быть пустым"));
+    }
+
+    @Test
+    void testValidateWithEmptyId() {
+        Order emptyId = new Order("", "Customer", "Product", 1, false);
+        var errors = validator.validate(emptyId);
+        assertTrue(validator.isValid(emptyId));
+    }
+
+    @Test
+    void testValidateWithWhitespaceId() {
+        Order whitespaceId = new Order("   ", "Customer", "Product", 1, false);
+        var errors = validator.validate(whitespaceId);
+        assertTrue(validator.isValid(whitespaceId));
+    }
+
+    @Test
+    void testValidateWithNegativeQuantity() {
+        order.setQuantity(-5);
+        var errors = validator.validate(order);
+        assertTrue(errors.contains("Количество товара должно быть больше нуля"));
+    }
+
+    @Test
+    void testValidateWithZeroQuantity() {
+        order.setQuantity(0);
+        var errors = validator.validate(order);
+        assertTrue(errors.contains("Количество товара должно быть больше нуля"));
+    }
+
+    @Test
+    void testValidateReturnsMultipleErrors() {
+        Order invalid = new Order();
+        invalid.setId(null);
+        invalid.setCustomerName(null);
+        invalid.setProductDescription(null);
+        invalid.setQuantity(-1);
+
+        var errors = validator.validate(invalid);
+        assertTrue(errors.size() >= 4);
+    }
+
 }

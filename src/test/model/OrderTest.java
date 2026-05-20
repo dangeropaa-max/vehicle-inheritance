@@ -150,4 +150,31 @@ class OrderTest {
         Order order = new Order(null, "Customer", "Product", 1, false);
         assertNotNull(order.getId());
     }
+
+    @Test
+    void testEqualsWithSameIdDifferentObjects() {
+        Order order1 = new Order("same", "Customer1", "Product1", 1, false);
+        Order order2 = new Order("same", "Customer2", "Product2", 2, true);
+        assertEquals(order1, order2);
+    }
+
+    @Test
+    void testHashCodeWithSameId() {
+        Order order1 = new Order("same", "Customer1", "Product1", 1, false);
+        Order order2 = new Order("same", "Customer2", "Product2", 2, true);
+        assertEquals(order1.hashCode(), order2.hashCode());
+    }
+
+    @Test
+    void testConstructorWithNullCustomerName() {
+        Order order = new Order(null, "Product", 1, false);
+        assertNull(order.getCustomerName());
+    }
+
+    @Test
+    void testConstructorWithNullProductDescription() {
+        Order order = new Order("Customer", null, 1, false);
+        assertNull(order.getProductDescription());
+    }
+
 }

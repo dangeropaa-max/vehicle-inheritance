@@ -5,27 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1adf3170-26df-41e7-a5ad-61cad6836fe4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/java1/annotations/NotEmpty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/java1/annotations/NotNull.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/consumer/OrderConsumerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java1/annotations/Validate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java1/consumer/OrderConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/consumer/OrderConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java1/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java1/service/OrderProcessingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/service/OrderProcessingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java1/validator/OrderValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java1/validator/OrderValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/model/OrderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/OrderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/service/OrderProcessingServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/service/OrderProcessingServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/validator/OrderValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/validator/OrderValidatorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/java1/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/java1/annotations/OrderType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/annotations/OrderType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/java1/annotations/Validate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/java1/consumer/OrderConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/consumer/OrderConsumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/java1/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/model/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/java1/model/OrderStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/model/OrderStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/java1/producer/OrderProducer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/producer/OrderProducer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/java1/service/OrderProcessingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/service/OrderProcessingService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/java1/validator/OrderValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/validator/OrderValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/model/OrderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/model/OrderTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/service/OrderProcessingServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/service/OrderProcessingServiceTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/validator/OrderValidatorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/validator/OrderValidatorTest.class" afterDir="false" />
@@ -69,7 +55,7 @@
     "JUnit.OrderValidatorTest.executor": "Run",
     "JUnit.java1 in vehicle-inheritance.executor": "Run",
     "JUnit.java1.annotations in vehicle-inheritance.executor": "Run",
-    "JUnit.test in vehicle-inheritance.executor": "Run",
+    "JUnit.test in vehicle-inheritance.executor": "Coverage",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "task-manager",
     "kotlin-language-version-configured": "true",
@@ -84,7 +70,7 @@
       <recent name="C:\Users\Denis\IdeaProjects\vehicle-inheritance\src\test\java1\model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.test in vehicle-inheritance">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="java1.Main" />
       <module name="vehicle-inheritance" />
@@ -151,10 +137,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test in vehicle-inheritance" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.java1.annotations in vehicle-inheritance" />
         <item itemvalue="JUnit.java1 in vehicle-inheritance" />
-        <item itemvalue="JUnit.test in vehicle-inheritance" />
         <item itemvalue="JUnit.OrderValidatorTest (1)" />
       </list>
     </recent_temporary>
@@ -169,5 +155,8 @@
       <updated>1775020422262</updated>
     </task>
     <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/vehicle_inheritance$test_in_vehicle_inheritance.ic" NAME="test in vehicle-inheritance Coverage Results" MODIFIED="1779286930063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

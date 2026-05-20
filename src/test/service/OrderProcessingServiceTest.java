@@ -190,4 +190,168 @@ class OrderProcessingServiceTest {
         int processedCount = service.getProcessedOrdersCount();
         assertTrue(processedCount >= 0);
     }
+
+    @Test
+    void testGetProcessedOrdersWhenEmpty() {
+        assertTrue(service.getProcessedOrders().isEmpty());
+    }
+
+    @Test
+    void testGetProcessedOrdersListWhenEmpty() {
+        assertTrue(service.getProcessedOrdersList().isEmpty());
+    }
+
+    @Test
+    void testGetOrderWhenNotExists() {
+        assertNull(service.getOrder("not-exists"));
+    }
+
+    @Test
+    void testStopWhenNotRunning() {
+        service.stop();
+        assertFalse(service.isRunning());
+    }
+
+    @Test
+    void testStartWhenAlreadyRunning() {
+        service.start();
+        service.start();
+        assertTrue(service.isRunning());
+    }
+
+    @Test
+    void testGetProcessedOrdersReturnsCopy() throws InterruptedException {
+        service.start();
+        Thread.sleep(1000);
+
+        var orders = service.getProcessedOrders();
+        int originalSize = orders.size();
+        orders.clear();
+
+        assertEquals(originalSize, service.getProcessedOrdersCount());
+        service.stop();
+    }
+    @Test
+    void testGetProcessedOrdersWhenNull() {
+        OrderProcessingService newService = new OrderProcessingService(2, 10);
+        assertNotNull(newService.getProcessedOrders());
+    }
+
+    @Test
+    void testGetQueueSizeWhenNull() {
+        OrderProcessingService newService = new OrderProcessingService(2, 10);
+        assertTrue(newService.getQueueSize() >= 0);
+    }
+
+    @Test
+    void testGetProcessedOrdersCountWhenNull() {
+        OrderProcessingService newService = new OrderProcessingService(2, 10);
+        assertEquals(0, newService.getProcessedOrdersCount());
+    }
+
+    @Test
+    void testGetProcessedOrdersListWhenNull() {
+        OrderProcessingService newService = new OrderProcessingService(2, 10);
+        assertTrue(newService.getProcessedOrdersList().isEmpty());
+    }
+
+    @Test
+    void testGetOrderWhenNull() {
+        OrderProcessingService newService = new OrderProcessingService(2, 10);
+        assertNull(newService.getOrder("any-id"));
+    }
+
+    @Test
+    void testRestartMethod() throws InterruptedException {
+        service.start();
+        Thread.sleep(500);
+        service.restart();
+        assertTrue(service.isRunning());
+        service.stop();
+    }
+
+    @Test
+    void testStopWithInterruptedException() throws InterruptedException {
+        service.start();
+        Thread.sleep(500);
+        Thread stopThread = new Thread(() -> {
+            service.stop();
+        });
+        stopThread.start();
+        stopThread.interrupt();
+
+        Thread.sleep(500);
+        assertFalse(service.isRunning());
+    }
+
+    @Test
+    void testGetProcessedOrdersAfterStop() throws InterruptedException {
+        service.start();
+        Thread.sleep(2000);
+        service.stop();
+
+        var orders = service.getProcessedOrders();
+        assertNotNull(orders);
+    }
+
+    @Test
+    void testGetQueueSizeAfterStop() throws InterruptedException {
+        service.start();
+        Thread.sleep(2000);
+        service.stop();
+
+        int queueSize = service.getQueueSize();
+        assertTrue(queueSize >= 0);
+    }
+
+    @Test
+    void testGetProcessedOrdersCountAfterStop() throws InterruptedException {
+        service.start();
+        Thread.sleep(2000);
+        service.stop();
+
+        int count = service.getProcessedOrdersCount();
+        assertTrue(count >= 0);
+    }
+
+    @Test
+    void testGetProcessedOrdersListAfterStop() throws InterruptedException {
+        service.start();
+        Thread.sleep(2000);
+        service.stop();
+
+        var list = service.getProcessedOrdersList();
+        assertNotNull(list);
+    }
+
+    @Test
+    void testGetOrderAfterStop() throws InterruptedException {
+        service.start();
+        Thread.sleep(2000);
+        service.stop();
+
+        var order = service.getOrder("any-id");
+        assertNull(order);
+    }
+
+    @Test
+    void testIsRunningAfterStop() throws InterruptedException {
+        service.start();
+        Thread.sleep(500);
+        service.stop();
+
+        assertFalse(service.isRunning());
+    }
+
+    @Test
+    void testMultipleRestartCalls() throws InterruptedException {
+        for (int i = 0; i < 3; i++) {
+            service.start();
+            Thread.sleep(200);
+            service.restart();
+            Thread.sleep(200);
+        }
+        assertTrue(service.isRunning());
+        service.stop();
+    }
 }
