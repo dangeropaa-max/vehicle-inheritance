@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1adf3170-26df-41e7-a5ad-61cad6836fe4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/consumer/OrderConsumerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/MainTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/model/OrderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/OrderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/service/OrderProcessingServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/service/OrderProcessingServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/validator/OrderValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/validator/OrderValidatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/java1/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/java1/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/model/OrderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/model/OrderTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/service/OrderProcessingServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/service/OrderProcessingServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/validator/OrderValidatorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/validator/OrderValidatorTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +41,7 @@
     "Application.MainTreeBinarySearch.executor": "Run",
     "Application.Seaport.executor": "Run",
     "Application.SingleLaneBridge.executor": "Run",
+    "JUnit.MainTest.executor": "Run",
     "JUnit.OrderProcessingServiceTest.executor": "Run",
     "JUnit.OrderTest (1).executor": "Run",
     "JUnit.OrderTest.executor": "Run",
@@ -84,16 +78,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderValidatorTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="vehicle-inheritance" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="validator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="validator" />
-      <option name="MAIN_CLASS_NAME" value="validator.OrderValidatorTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -138,10 +126,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.test in vehicle-inheritance" />
+        <item itemvalue="JUnit.MainTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.java1.annotations in vehicle-inheritance" />
         <item itemvalue="JUnit.java1 in vehicle-inheritance" />
-        <item itemvalue="JUnit.OrderValidatorTest (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -157,6 +145,6 @@
     <servers />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/vehicle_inheritance$test_in_vehicle_inheritance.ic" NAME="test in vehicle-inheritance Coverage Results" MODIFIED="1779286930063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/vehicle_inheritance$test_in_vehicle_inheritance.ic" NAME="test in vehicle-inheritance Coverage Results" MODIFIED="1779294996432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
